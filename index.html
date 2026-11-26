@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UrbanSynth X V3.5 — User Manual | Urban Audio Music</title>
+  <style>
+    :root {
+      --bg: #05070d;
+      --panel: #0b101d;
+      --border: #1b2845;
+      --cyan: #00e5ff;
+      --magenta: #ff2a9d;
+      --gold: #ffb800;
+      --text: #e6eefc;
+      --muted: #8ea0c2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+    aside {
+      width: 280px;
+      background: #070b14;
+      border-right: 1px solid var(--border);
+      padding: 24px 18px;
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .brand { border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+    .brand small { color: var(--cyan); letter-spacing: 2px; font-size: 11px; text-transform: uppercase; display: block; }
+    .brand h1 { font-size: 22px; letter-spacing: 1px; margin-top: 4px; }
+    .brand h1 span { color: var(--cyan); }
+    .lang-bar { display: flex; gap: 8px; }
+    .lang-btn {
+      flex: 1; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border);
+      background: var(--panel); color: var(--muted); font-weight: 600; font-size: 12px;
+      cursor: pointer; text-align: center; text-decoration: none;
+    }
+    .lang-btn.active {
+      border-color: var(--cyan); color: #05070d; background: var(--cyan);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.35);
+    }
+    nav { display: flex; flex-direction: column; gap: 6px; }
+    nav a {
+      display: block; padding: 10px 12px; border-radius: 6px; color: var(--text);
+      text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.8px;
+      border: 1px solid transparent; transition: all 0.15s ease;
+    }
+    nav a:hover { background: rgba(0, 229, 255, 0.08); border-color: rgba(0, 229, 255, 0.35); color: var(--cyan); }
+    nav a.full-pdf {
+      background: linear-gradient(90deg, rgba(0,229,255,0.18), rgba(255,42,157,0.18));
+      border: 1px solid var(--cyan); color: #fff; text-align: center; margin-bottom: 6px;
+    }
+    main { margin-left: 280px; flex: 1; padding: 40px 48px 80px; max-width: 980px; }
+    section {
+      background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+      padding: 28px 30px; margin-bottom: 24px; box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    }
+    h2 {
+      font-size: 20px; color: var(--cyan); letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 14px; border-bottom: 1px solid var(--border); padding-bottom: 8px;
+    }
+    h3 { font-size: 15px; color: var(--magenta); margin: 16px 0 8px; }
+    p { margin-bottom: 12px; color: var(--text); }
+    ul { margin: 8px 0 14px 20px; }
+    li { margin-bottom: 6px; }
+    strong { color: #fff; }
+    .badge {
+      display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700;
+      background: rgba(0,229,255,0.14); color: var(--cyan); border: 1px solid rgba(0,229,255,0.4); margin-right: 6px;
+    }
+    .badge.gold { background: rgba(255,184,0,0.14); color: var(--gold); border-color: rgba(255,184,0,0.4); }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    .btn { display: inline-block; padding: 11px 18px; border-radius: 8px; font-weight: 700; font-size: 13px; text-decoration: none; letter-spacing: 0.5px; }
+    .btn-primary { background: var(--cyan); color: #05070d; box-shadow: 0 0 16px rgba(0,229,255,0.35); }
+    .btn-secondary { background: transparent; color: var(--magenta); border: 1px solid var(--magenta); }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+    th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); }
+    th { color: var(--cyan); text-transform: uppercase; font-size: 11px; letter-spacing: 0.8px; }
+    footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 32px; }
+    @media (max-width: 820px) {
+      body { flex-direction: column; }
+      aside { position: relative; width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+      main { margin-left: 0; padding: 24px 18px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside>
+    <div class="brand">
+      <small>Urban Audio Music</small>
+      <h1>URBAN<span>SYNTH X</span></h1>
+      <small style="color:var(--muted); margin-top:4px;">V3.5 — Official Manual</small>
+    </div>
+
+    <div class="lang-bar">
+      <a class="lang-btn active" href="./index.html">IT</a>
+      <a class="lang-btn" href="#" onclick="alert('Versione inglese in arrivo!'); return false;">EN</a>
+    </div>
+
+    <nav>
+      <a class="full-pdf" href="./Manuale%20Utente%20UrbanSynth%20X%20V3.5%20(IT).pdf" target="_blank">⬇ FULL MANUAL (PDF)</a>
+      <a href="#introduction">1. INTRODUCTION</a>
+      <a href="#installation">2. INSTALLATION NOTES</a>
+      <a href="#navigation">3. NAVIGATION</a>
+      <a href="#topbar">4. USING THE TOP BAR</a>
+      <a href="#synthesis">5. SOUND &amp; SYNTHESIS</a>
+      <a href="#features">6. FEATURES &amp; CONTROLS</a>
+      <a href="#effects">7. USING THE EFFECTS</a>
+      <a href="#auv3">8. AUV3 INTEGRATION</a>
+      <a href="#support">9. SUPPORT</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section id="introduction">
+      <h2>1. Introduction</h2>
+      <p><strong>UrbanSynth X</strong> è un sintetizzatore ibrido polifonico a 32 voci progettato da <strong>Urban Audio Music</strong> per macOS (VST3 / AU) e iPadOS / iOS (Standalone &amp; AUv3).</p>
+      <ul>
+        <li><strong>Motore Synth Ibrido Dual-Layer:</strong> INST 1 (Ciano) e INST 2 (Magenta) con oscillatori PolyBLEP, Sample Playback Engine, filtri 4-Pole e 3D Analyzer.</li>
+        <li><strong>64-Step Live Sequencer a 3 Tracce:</strong> 8 banchi concatenabili (A–H), modulazione per step, generatore algoritmico e export diretto DRAG MIDI / DRAG WAV.</li>
+        <li><strong>Urban Drum 8:</strong> 8 canali, 73 controlli, 400 suoni (DRM1, Rytm, DFAM, Syntakt) e matrice rapida V / E / M / S con 32 sequenze hardware-inspired.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="./Manuale%20Utente%20UrbanSynth%20X%20V3.5%20(IT).pdf" target="_blank">Apri Manuale Completo (PDF)</a>
+        <a class="btn btn-secondary" href="./Manuale%20Utente%20UrbanSynth%20X%20V3.5%20(IT).pdf" download>Scarica PDF (IT)</a>
+      </div>
+    </section>
+
+    <section id="installation">
+      <h2>2. Installation Notes</h2>
+      <h3>macOS (VST3 &amp; Audio Unit)</h3>
+      <ul>
+        <li>Avvia l'installer firmato e notarizzato <strong>UrbanSynth_X_V3.5_Installer.pkg</strong>.</li>
+        <li>Percorsi installati: <code>~/Library/Audio/Plug-Ins/VST3/UrbanSynth X.vst3</code> e <code>~/Library/Audio/Plug-Ins/Components/UrbanSynth X.component</code>.</li>
+        <li>Riavvia la tua DAW (Ableton Live, Logic Pro, Cubase, ecc.) e scansiona i plugin.</li>
+      </ul>
+      <h3>iPadOS &amp; iOS (Standalone &amp; AUv3)</h3>
+      <p>Installa UrbanSynth X su iPad/iPhone: utilizzabile subito in Standalone (MIDI USB/Bluetooth, Ableton Link) oppure come strumento AUv3 dentro la tua DAW mobile.</p>
+    </section>
+
+    <section id="navigation">
+      <h2>3. Navigation</h2>
+      <ul>
+        <li><strong>Top Bar:</strong> Preset Browser, BPM, MIDI Map, Undo/Redo, Panic, XY-Pads, 64-Seq e Settings.</li>
+        <li><strong>Pannello Synth Principale:</strong> Sample Playback, Digital Oscillators, 4-Pole Filter &amp; LFO, Envelopes ADSR, Dual FX e 3D Analyzer.</li>
+        <li><strong>64-Step Live Sequencer (64-SEQ):</strong> vista a tutto schermo per TRK 1, TRK 2 e TRK 3.</li>
+        <li><strong>Urban Drum 8 (DRUM LAB):</strong> console percussiva completa a 8 canali.</li>
+        <li><strong>Barra Rapida &amp; Tastiera:</strong> selezione stile (STYLE: CYBER / URBAN), XL KEYS, pitch/mod slider e tastiera suonabile.</li>
+      </ul>
+    </section>
+
+    <section id="topbar">
+      <h2>4. Using the Top Bar</h2>
+      <ul>
+        <li><strong>XY-PADS / 64-SEQ:</strong> accesso istantaneo al pad bidimensionale e al sequencer a 64 step.</li>
+        <li><strong>MIDI MAP / CLEAR CC:</strong> assegna rapidamente qualsiasi controllo al tuo controller hardware.</li>
+        <li><strong>BPM &amp; PANIC:</strong> visualizzazione tempo sincronizzato e reset immediato di tutte le voci.</li>
+        <li><strong>Preset Browser (&lt; / &gt;):</strong> navigazione tra banchi factory e preset utente con salvataggio completo di synth, Drum 8 e sequenze.</li>
+        <li><strong>Settings (Ingranaggio):</strong> accesso a Advanced, Configuration, MIDI, Share, Manual e About.</li>
+      </ul>
+    </section>
+
+    <section id="synthesis">
+      <h2>5. Understanding Sound &amp; Synthesis</h2>
+      <p>Il percorso del segnale combina <strong>Sample Playback</strong> (con drag &amp; drop WAV/AIFF/MP3 e tasto <code>SOLO SAMPLE</code>) e <strong>Digital Oscillators (PolyBLEP)</strong> con <code>SYNC 2&gt;1</code>, filtrati da un <strong>4-Pole Stereo VCF</strong> con Drive, Key-Tracking, Slop e LFO dedicato. Il <strong>3D Analyzer</strong> mostra in tempo reale Sample Shaper, curva VCF, inviluppo ADSR e oscilloscopio live a 32 voci.</p>
+    </section>
+
+    <section id="features">
+      <h2>6. Features &amp; Controls</h2>
+      <h3>Arpeggiator &amp; Performance</h3>
+      <p>Clock indipendente (<code>ARP BPM</code>, <code>TAP</code>, <code>DIVIDE</code>), <code>ARP ON</code>, <code>OCT</code>, <code>REP</code>, <code>UNISON</code>, <code>DETUNE</code>, <code>HOLD</code>, <code>16V MONO</code> ed export diretto <code>DRAG MIDI</code> / <code>DRAG WAV</code>.</p>
+      <h3>64-Step Live Sequencer &amp; Matrice V / E / M / S</h3>
+      <p>3 tracce indipendenti (TRK 1 Ciano, TRK 2 Magenta, TRK 3 Urban Drum 8) su 8 banchi (A–H). Il lingotto oro <span class="badge gold">DRUM LAB</span> apre la drum machine; i 4 pulsanti <strong>V DRM1 / E RYTM / M DFAM / S SYNT</strong> caricano 32 sequenze ritmiche complete abbinate ai rispettivi timbri.</p>
+      <h3>Urban Drum 8 (400 Suoni)</h3>
+      <p>8 canali (KICK, DRUM 1, DRUM 2, MULTI, SNARE, HI-HAT 1, HI-HAT 2, CLAP) con 50 timbri ciascuno: <strong>01–13 DRM1</strong>, <strong>14–26 RYTM</strong>, <strong>27–38 DFAM</strong>, <strong>39–50 SYNT</strong>. Include <code>HH CHOKE</code>, <code>INSERT DRIVE</code>, <code>TRIG MODE</code> e <strong>Pioneer Beat Roll</strong> (1/8, 1/16, 1/32, 1/64).</p>
+    </section>
+
+    <section id="effects">
+      <h2>7. Using the Effects</h2>
+      <p>Due slot effetti indipendenti (<strong>FX 1</strong> e <strong>FX 2</strong>) con <code>BYPASS FX</code>, <code>EDIT FX</code> e <strong>Master Limiter -0.2 dB</strong>:</p>
+      <table>
+        <thead><tr><th>#</th><th>Algoritmo DSP</th><th>Carattere</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Stereo Ping-Pong</td><td>Delay stereo ritmico L/R</td></tr>
+          <tr><td>2</td><td>Warm BBD Delay</td><td>Delay analogico caldo</td></tr>
+          <tr><td>3</td><td>Juno Chorus</td><td>Chorus stereo classico</td></tr>
+          <tr><td>4</td><td>Jet Flanger</td><td>Modulazione metallica e sweep</td></tr>
+          <tr><td>5</td><td>6-Stage Phaser</td><td>Phaser psichedelico a 6 stadi</td></tr>
+          <tr><td>6</td><td>Resonant HPF</td><td>Passa-alto risonante per build-up</td></tr>
+          <tr><td>7</td><td>Warm Overdrive</td><td>Saturazione armonica analogica</td></tr>
+          <tr><td>8</td><td>Leslie Speaker</td><td>Simulazione altoparlante rotante</td></tr>
+          <tr><td>9</td><td>Spring Reverb</td><td>Riverbero a molla vintage</td></tr>
+          <tr><td>10</td><td>Room Reverb</td><td>Ambiente corto naturale</td></tr>
+          <tr><td>11</td><td>Hall Reverb</td><td>Coda ampia cinematografica</td></tr>
+          <tr><td>12</td><td>Super Plate</td><td>Plate denso da studio</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="auv3">
+      <h2>8. AUv3 Integration</h2>
+      <p>Carica <strong>UrbanSynth X</strong> come strumento AUv3 dentro Logic Pro per iPad, AUM, Cubasis o GarageBand: tutte le automazioni, il clock dell'host e lo stato completo (inclusi i 400 suoni Drum 8 e le sequenze a 64 step) vengono salvati automaticamente nel progetto.</p>
+    </section>
+
+    <section id="support">
+      <h2>9. Support</h2>
+      <p><strong>Urban Audio Music</strong> — Sviluppato da UrbanoArchimede.</p>
+      <p>Per assistenza tecnica o segnalazioni usa il pulsante <strong>CONTACT US FOR HELP</strong> nella schermata <em>Settings &gt; About</em> del plugin.</p>
+    </section>
+
+    <footer>UrbanSynth X V3.5 — © 2026 Urban Audio Music. All rights reserved.</footer>
+  </main>
+
+</body>
+</html>
